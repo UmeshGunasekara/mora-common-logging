@@ -20,7 +20,7 @@ Project: _slmora_logging_
 
 ### Project Information
 - **Name :** _MoraCommonLogging_
-- **Description :** _mora-common-logging-003-20250114001_
+- **Description :** _mora-common-logging_
 - **URL :** _[slmora](http://www.slmora.com "www.slmora.com")_
 - **Last Injection :** _mora-common-logging-003-20250114001_
 
