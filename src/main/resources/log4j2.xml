@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Created by IntelliJ IDEA.
+ * Language: XML
+ * Property of Umesh Gunasekara
+ * @Author: SLMORA
+ * @DateTime: 01/14/2025 12:00 AM
+ *
+ * This log4j2.xml comes with basic log4j2 configuration for mora-common-logging-003-20250114001 Project
+ *
+ * Version      Date            Editor              Note
+ * ======================================================
+ * 1.0			01/14/2025		SLMORA              Initial Code
+ *
+-->
+<Configuration status="WARN" monitorInterval="30">
+
+    <Properties>
+<!--        <Property name="LOG_PATTERN">%d{'D-'yyyy-MM-dd 'T-'HH:mm:ss.SSS 'Z'Z} &#45;&#45; [T_ID-%tid | T_NAME-%tn] [%p] [Class - %C | Method - %M | Line - %L] %m%n</Property>-->
+<!--        <Property name="LOG_PATTERN">[%d{'D : 'yyyy-MM-dd 'T : 'HH:mm:ss.SSS 'Z : 'Z}] [T_ID : %tid | T_NAME : %tn] [%p] %m%n</Property>-->
+        <Property name="LOG_PATTERN">[%d{'D : 'yyyy-MM-dd 'T : 'HH:mm:ss.SSS 'Z : 'Z}] [%p] %m%n</Property>
+        <Property name="LOG_DIR">D:/SLMORAWorkSpace/IntelliJProjects/slmora-loggin/mora-common-logging/logs</Property>
+        <Property name="PROJECT_NAME">mora-common-logging</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="logToConsole" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <RollingFile name="debugLog" fileName="${LOG_DIR}/${PROJECT_NAME}-debug.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-debug.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="DEBUG" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="infoLog" fileName="${LOG_DIR}/${PROJECT_NAME}-info.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-info.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="transactionLogs" fileName="${LOG_DIR}/${PROJECT_NAME}-transaction.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-transaction.%d{yyyy-MM-dd}-%i.log">
+            <!--            <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>-->
+            <MarkerFilter marker="TRANSACTION" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="errorLog" fileName="${LOG_DIR}/${PROJECT_NAME}-error.log"
+                     filePattern="${LOG_DIR}/$${date:yyy-MM-dd}/${PROJECT_NAME}-error.%d{yyyy-MM-dd}-%i.log">
+            <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <Async name="Async">
+            <AppenderRef ref="debugLog" />
+            <AppenderRef ref="infoLog" />
+            <AppenderRef ref="errorLog" />
+            <AppenderRef ref="transactionLogs" />
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.slmora" additivity="false" >
+            <AppenderRef ref="logToConsole" />
+            <!--            <AppenderRef ref="debugLog" />-->
+            <!--            <AppenderRef ref="infoLog" />-->
+            <!--            <AppenderRef ref="errorLog" />-->
+            <AppenderRef ref="Async" />
+        </Logger>
+        <!--        <Root level="error">-->
+        <!--            <AppenderRef ref="logToConsole" />-->
+        <!--            <AppenderRef ref="debugLog" />-->
+        <!--        </Root>-->
+        <Root level="all">
+            <AppenderRef ref="logToConsole" />
+        </Root>
+    </Loggers>
+</Configuration>

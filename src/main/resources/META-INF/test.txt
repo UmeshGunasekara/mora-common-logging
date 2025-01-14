@@ -1,0 +1,95 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+Sign in
+Sign up
+Instantly share code, notes, and snippets.
+
+@aleroddepaz
+aleroddepaz/persistence.xml
+Last active last year
+4
+4
+Code
+Revisions
+3
+Stars
+4
+Forks
+4
+<script src="https://gist.github.com/aleroddepaz/f5c0870a61160e6559f26b950d762301.js"></script>
+Sample JPA 2.1 persistence units
+persistence.xml
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+  version="2.1">
+
+  <!-- Hibernate + H2 -->
+  <persistence-unit name="standalonePu" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>com.acme.MyEntity</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:dbname;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE" />
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+  
+  <!-- Hibernate + Derby -->
+  <persistence-unit name="standalonePu" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>com.acme.MyEntity</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:dbname;create=true" />
+      
+      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
+      <property name="hibernate.hbm2ddl.auto" value="create" />
+      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.format_sql" value="true" />
+    </properties>
+  </persistence-unit>
+  
+  <!-- Hibernate (JTA) -->
+  <persistence-unit name="jndiPu" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <jta-data-source>jdbc/MyDatasource</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+  </persistence-unit>
+  
+  <!-- EclipseLink + MySQL -->
+  <persistence-unit name="eclipselinkPu" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.acme.MyEntity</class>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+      <property name="javax.persistence.jdbc.user" value="scott" />
+      <property name="javax.persistence.jdbc.password" value="tiger" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbname" />
+      
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.target-database" value="MySQL"/>
+      <property name="eclipselink.ddl-generation" value="create-tables" />
+    </properties>
+  </persistence-unit>
+  
+  <!-- See https://docs.oracle.com/javaee/7/tutorial/persistence-intro005.htm for further information -->
+</persistence>
+ to join this conversation on GitHub. Already have an account? Sign in to comment
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

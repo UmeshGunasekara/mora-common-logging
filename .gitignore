@@ -1,0 +1,9 @@
+*.log
+*.orig
+*.iml
+.idea
+*.class
+/target
+/checkstyleidea.tmp
+/log
+/libs

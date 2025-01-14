@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * This pom.xml comes with basic dependency requirements and create for mora-common-logging-003-20250114001 Project
+ *
+ * Language: XML
+ * Property of Umesh Gunasekara
+ * @Author: SLMORA
+ * @DateTime: 01/14/2025 12:00 AM
+ * 
+ * Version      Date            Editor              Note
+ * =====================================================================================================================
+ * 1.0			01/14/2025		SLMORA              Initial Code
+ * 1.1			01/14/2025		SLMORA				Generated from pom.xml using mora-sandbox-011-20250114001
+ *
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.slmora.common.logging</groupId>
+	<artifactId>mora-common-logging</artifactId>
+	<version>3.0</version>
+	<packaging>jar</packaging>
+<!--	<packaging>war</packaging>-->
+
+	<!-- Project Information -->
+	<name>MoraCommonLogging</name>
+	<description>mora-common-logging</description>
+	<url>http://www.slmora.com</url>
+	<organization>
+		<name>CeylonCodes</name>
+		<url>http://www.ceyloncodes.com</url>
+	</organization>
+    <developers>
+		<developer>
+			<id>SLMORA</id>
+			<name>Umesh Gunasekara</name>
+			<email>umesh.gunasekara.n@gamil.com</email>
+			<url>http://www.slmora.com</url>
+			<organization>CeylonCodes</organization>
+			<organizationUrl>http://www.ceyloncodes.com</organizationUrl>
+			<roles>
+				<role>owner</role>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>Asia/Colombo</timezone>
+			<properties>
+				<picUrl>https://avatars.githubusercontent.com/u/12097282?v=4</picUrl>
+			</properties>
+		</developer>
+	</developers>
+
+<!--	<repositories>-->
+<!--		<repository>-->
+<!--			<id>sourceforge</id>-->
+<!--			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+<!--			<snapshots>-->
+<!--				<enabled>true</enabled>-->
+<!--			</snapshots>-->
+<!--		</repository>-->
+<!--	</repositories>-->
+
+	<!-- Project Properties -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<apache.logging.log4j.version>2.24.3</apache.logging.log4j.version>
+<!--		<apache.logging.log4j.version>2.19.0</apache.logging.log4j.version>-->
+		<maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+<!--		<maven.compiler.source>1.8</maven.compiler.source>-->
+<!--		<maven.compiler.target>1.8</maven.compiler.target>-->
+		<mysql.connector.version>8.0.33</mysql.connector.version>
+<!--		<mysql.connector.version>8.0.31</mysql.connector.version>-->
+<!--		<hibernate.orm.version>6.5.2.Final</hibernate.orm.version>-->
+		<hibernate.orm.version>6.6.4.Final</hibernate.orm.version>
+		<junit.jupiter.version>5.11.4</junit.jupiter.version>
+<!--		<junit.jupiter.version>5.9.1</junit.jupiter.version>-->
+
+	</properties>
+
+	<!-- Project Dependencies -->
+	<dependencies>
+
+		<!-- Log4j Logging Dependencies ===================================================================================================================== -->
+
+		<!-- new dependency org.apache.logging.log4j - log4j-core-->
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+<!--		<dependency>-->
+<!--			<groupId>log4j</groupId>-->
+<!--			<artifactId>log4j</artifactId>-->
+<!--			<version>1.2.17</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${apache.logging.log4j.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${apache.logging.log4j.version}</version>
+		</dependency>
+
+		<!-- new dependency org.apache.logging.log4j - log4j-slf4j2-impl-->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.logging.log4j</groupId>-->
+<!--			<artifactId>log4j-slf4j-impl</artifactId>-->
+<!--			<version>${apache.logging.log4j.version}</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j2-impl</artifactId>
+			<version>${apache.logging.log4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Apache Commons Dependencies ===================================================================================================================== -->
+
+		<!-- new dependency org.apache.commons - commons-lang3-->
+		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+<!--		<dependency>-->
+<!--			<groupId>commons-lang</groupId>-->
+<!--			<artifactId>commons-lang</artifactId>-->
+<!--			<version>2.6</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.17.0</version>
+<!--			<version>3.12.0</version>-->
+		</dependency>
+
+		<!-- new dependency org.apache.commons - commons-collections4-->
+		<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+<!--		<dependency>-->
+<!--			<groupId>commons-collections</groupId>-->
+<!--			<artifactId>commons-collections</artifactId>-->
+<!--			<version>3.2.2</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-collections4</artifactId>-->
+<!--            <version>4.4</version>-->
+<!--        </dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<!--		<dependency>-->
+<!--			<groupId>commons-io</groupId>-->
+<!--			<artifactId>commons-io</artifactId>-->
+<!--			<version>2.18.0</version>-->
+<!--&lt;!&ndash;			<version>2.11.0</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- For Hex Generation ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+<!--		<dependency>-->
+<!--			<groupId>commons-codec</groupId>-->
+<!--			<artifactId>commons-codec</artifactId>-->
+<!--			<version>1.17.2</version>-->
+<!--&lt;!&ndash;			<version>2.15</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-crypto</artifactId>-->
+<!--			<version>6.4.2</version>-->
+<!--&lt;!&ndash;			<version>5.7.3</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- Json ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+<!--		<dependency>-->
+<!--			<groupId>org.json</groupId>-->
+<!--			<artifactId>json</artifactId>-->
+<!--			<version>20250107</version>-->
+<!--&lt;!&ndash;			<version>20220924</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<!--        <dependency>-->
+<!--            <groupId>com.googlecode.json-simple</groupId>-->
+<!--            <artifactId>json-simple</artifactId>-->
+<!--            <version>1.1.1</version>-->
+<!--        </dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.core</groupId>-->
+<!--			<artifactId>jackson-databind</artifactId>-->
+<!--			<version>2.18.2</version>-->
+<!--		</dependency>-->
+
+		<!-- Lombok ===================================================================================================================== -->
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
+
+		<!-- Jakarta ===================================================================================================================== -->
+
+		<!-- compatible for javax.transaction - jta-->
+		<!-- https://mvnrepository.com/artifact/jakarta.transaction/jakarta.transaction-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.transaction</groupId>-->
+<!--			<artifactId>jakarta.transaction-api</artifactId>-->
+<!--			<version>2.0.1</version>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax.transaction - jstl-->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.servlet.jsp.jstl</groupId>-->
+<!--			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>-->
+<!--			<version>3.0.2</version>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax.servlet - javax.servlet-api-->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.servlet</groupId>-->
+<!--			<artifactId>jakarta.servlet-api</artifactId>-->
+<!--			<version>6.1.0</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax.servlet.jsp - jsp-api-->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.servlet.jsp</groupId>-->
+<!--			<artifactId>jakarta.servlet.jsp-api</artifactId>-->
+<!--			<version>4.0.0</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax - javaee-api-->
+		<!-- https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.platform</groupId>-->
+<!--			<artifactId>jakarta.jakartaee-api</artifactId>-->
+<!--			<version>10.0.0</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+
+		<!-- JSP Servlet ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/javax.transaction/jta -->
+<!--		<dependency>-->
+<!--			<groupId>javax.transaction</groupId>-->
+<!--			<artifactId>jta</artifactId>-->
+<!--			<version>1.1</version>-->
+<!--		</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-api</artifactId>-->
+<!--            <version>2.0.16</version>-->
+<!--&lt;!&ndash;			<version>2.0.3</version>&ndash;&gt;-->
+<!--        </dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>jstl</artifactId>-->
+<!--			<version>1.2</version>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax.transaction - jstl-->
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet.jsp.jstl</groupId>-->
+<!--			<artifactId>jstl</artifactId>-->
+<!--			<version>1.2</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency javax.servlet - javax.servlet-api-->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>servlet-api</artifactId>-->
+<!--			<version>2.5</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>javax.servlet-api</artifactId>-->
+<!--			<version>4.0.1</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- new dependency javax.servlet.jsp - jsp-api-->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>jsp-api</artifactId>-->
+<!--			<version>2.0</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet.jsp</groupId>-->
+<!--			<artifactId>jsp-api</artifactId>-->
+<!--			<version>2.2</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- compatible for javax.servlet.jsp - jsp-api-->
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet.jsp</groupId>-->
+<!--			<artifactId>javax.servlet.jsp-api</artifactId>-->
+<!--			<version>2.3.3</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax</groupId>-->
+<!--			<artifactId>javaee-api</artifactId>-->
+<!--			<version>8.0.1</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- Elapsed Time ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+<!--		<dependency>-->
+<!--			<groupId>com.google.guava</groupId>-->
+<!--			<artifactId>guava</artifactId>-->
+<!--			<version>33.4.0-jre</version>-->
+<!--&lt;!&ndash;			<version>2.0.3</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- SQL ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>${mysql.connector.version}</version>-->
+<!--        </dependency>-->
+
+		<!-- compatible for mysql - mysql-connector-java-->
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+<!--		<dependency>-->
+<!--			<groupId>com.mysql</groupId>-->
+<!--			<artifactId>mysql-connector-j</artifactId>-->
+<!--			<version>9.1.0</version>-->
+<!--		</dependency>-->
+
+		<!-- DB ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+<!--        <dependency>-->
+<!--            <groupId>commons-dbcp</groupId>-->
+<!--            <artifactId>commons-dbcp</artifactId>-->
+<!--            <version>1.4</version>-->
+<!--        </dependency>-->
+
+		<!-- compatible for commons-dbcp - commons-dbcp-->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.commons</groupId>-->
+<!--			<artifactId>commons-dbcp2</artifactId>-->
+<!--			<version>2.13.0</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+<!--        <dependency>-->
+<!--            <groupId>com.zaxxer</groupId>-->
+<!--            <artifactId>HikariCP</artifactId>-->
+<!--            <version>6.2.0</version>-->
+<!--&lt;!&ndash;			<version>5.0.1</version>&ndash;&gt;-->
+<!--        </dependency>-->
+
+		<!-- new dependency com.mchange - c3p0-->
+		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+<!--		<dependency>-->
+<!--			<groupId>c3p0</groupId>-->
+<!--			<artifactId>c3p0</artifactId>-->
+<!--			<version>0.9.1.2</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+<!--        <dependency>-->
+<!--            <groupId>com.mchange</groupId>-->
+<!--            <artifactId>c3p0</artifactId>-->
+<!--            <version>0.10.1</version>-->
+<!--&lt;!&ndash;			<version>0.9.5.5</version>&ndash;&gt;-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat</groupId>-->
+<!--            <artifactId>tomcat-jdbc</artifactId>-->
+<!--            <version>11.0.2</version>-->
+<!--&lt;!&ndash;			<version>10.1.0</version>&ndash;&gt;-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.vibur/vibur-dbcp -->
+<!--        <dependency>-->
+<!--            <groupId>org.vibur</groupId>-->
+<!--            <artifactId>vibur-dbcp</artifactId>-->
+<!--            <version>26.0</version>-->
+<!--        </dependency>-->
+
+		<!-- Hibernate ===================================================================================================================== -->
+
+		<!-- new dependency org.hibernate.orm - hibernate-core-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-core</artifactId>-->
+<!--			<version>6.5.2.Final</version>-->
+<!--			<type>pom</type>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.orm</groupId>-->
+<!--			<artifactId>hibernate-core</artifactId>-->
+<!--			<version>${hibernate.orm.version}</version>-->
+<!--		</dependency>-->
+
+		<!-- Hibernate-DB ===================================================================================================================== -->
+
+		<!-- new dependency org.hibernate.orm - hibernate-hikaricp-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-hikaricp -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-hikaricp</artifactId>-->
+<!--			<version>6.5.2.Final</version>-->
+<!--			<type>pom</type>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-hikaricp -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.orm</groupId>-->
+<!--			<artifactId>hibernate-hikaricp</artifactId>-->
+<!--			<version>${hibernate.orm.version}</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency org.hibernate.orm - hibernate-c3p0-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-c3p0</artifactId>-->
+<!--			<version>6.5.2.Final</version>-->
+<!--			<type>pom</type>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-c3p0 -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.orm</groupId>-->
+<!--			<artifactId>hibernate-c3p0</artifactId>-->
+<!--			<version>${hibernate.orm.version}</version>-->
+<!--		</dependency>-->
+
+		<!-- Hibernate-Cache ===================================================================================================================== -->
+
+		<!-- new dependency org.hibernate.orm - hibernate-jcache-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-jcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-jcache</artifactId>-->
+<!--			<version>6.5.2.Final</version>-->
+<!--			<type>pom</type>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-jcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.orm</groupId>-->
+<!--			<artifactId>hibernate-jcache</artifactId>-->
+<!--			<version>${hibernate.orm.version}</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency org.hibernate.orm - hibernate-jcache-->
+		<!-- https://mvnrepository.com/artifact/org.ehcache/jcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.ehcache</groupId>-->
+<!--			<artifactId>jcache</artifactId>-->
+<!--			<version>1.0.1</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency org.hibernate - hibernate-ehcache-->
+		<!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.ehcache</groupId>-->
+<!--			<artifactId>ehcache</artifactId>-->
+<!--			<version>3.10.8</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+<!--		<dependency>-->
+<!--			<groupId>org.glassfish.jaxb</groupId>-->
+<!--			<artifactId>jaxb-runtime</artifactId>-->
+<!--			<version>4.0.5</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency org.ehcache - ehcacher-->
+		<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+<!--		<dependency>-->
+<!--			<groupId>net.sf.ehcache</groupId>-->
+<!--			<artifactId>ehcache</artifactId>-->
+<!--			<version>2.10.9.2</version>-->
+<!--		</dependency>-->
+
+		<!-- compatible for org.hibernate.orm - hibernate-ehcache-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-ehcache</artifactId>-->
+<!--			<version>5.6.15.Final</version>-->
+<!--		</dependency>-->
+
+		<!-- compatible for org.hibernate.orm - hibernate-ehcache-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-ehcache -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.orm</groupId>-->
+<!--			<artifactId>hibernate-ehcache</artifactId>-->
+<!--			<version>6.0.0.Alpha7</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.ehcache.modules/ehcache-107 -->
+<!--		<dependency>-->
+<!--			<groupId>org.ehcache.modules</groupId>-->
+<!--			<artifactId>ehcache-107</artifactId>-->
+<!--&lt;!&ndash;			<version>3.10.8</version>&ndash;&gt;-->
+<!--			<version>3.10.5</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.ehcache.modules/ehcache-xml -->
+<!--		<dependency>-->
+<!--			<groupId>org.ehcache.modules</groupId>-->
+<!--			<artifactId>ehcache-xml</artifactId>-->
+<!--			<version>3.10.8</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
+		<!-- Hibernate-Validator ===================================================================================================================== -->
+
+		<!-- new dependency org.hibernate.validator - hibernate-validator-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate</groupId>-->
+<!--			<artifactId>hibernate-validator</artifactId>-->
+<!--			<version>8.0.1.Final</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.validator</groupId>-->
+<!--			<artifactId>hibernate-validator</artifactId>-->
+<!--&lt;!&ndash;			<version>8.0.1.Final</version>&ndash;&gt;-->
+<!--			<version>8.0.0.Final</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency javax.persistence - javax.persistence-api-->
+		<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.persistence</groupId>-->
+<!--			<artifactId>persistence-api</artifactId>-->
+<!--			<version>1.0.2</version>-->
+<!--		</dependency>-->
+
+		<!-- new dependency jakarta.persistence - jakarta.persistence-api-->
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+<!--		<dependency>-->
+<!--			<groupId>javax.persistence</groupId>-->
+<!--			<artifactId>javax.persistence-api</artifactId>-->
+<!--			<version>2.2</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+<!--		<dependency>-->
+<!--			<groupId>jakarta.persistence</groupId>-->
+<!--			<artifactId>jakarta.persistence-api</artifactId>-->
+<!--&lt;!&ndash;			<version>3.2.0</version>&ndash;&gt;-->
+<!--			<version>3.1.0</version>-->
+<!--		</dependency>-->
+
+		<!-- QR Generation ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+<!--		<dependency>-->
+<!--			<groupId>com.google.zxing</groupId>-->
+<!--			<artifactId>core</artifactId>-->
+<!--			<version>3.5.3</version>-->
+<!--&lt;!&ndash;			<version>3.5.0</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
+<!--		<dependency>-->
+<!--			<groupId>com.google.zxing</groupId>-->
+<!--			<artifactId>javase</artifactId>-->
+<!--			<version>3.5.3</version>-->
+<!--&lt;!&ndash;			<version>3.5.0</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- Excel ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.poi</groupId>-->
+<!--			<artifactId>poi</artifactId>-->
+<!--			<version>5.4.0</version>-->
+<!--&lt;!&ndash;			<version>5.2.3</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.poi</groupId>-->
+<!--			<artifactId>poi-ooxml</artifactId>-->
+<!--			<version>5.4.0</version>-->
+<!--&lt;!&ndash;			<version>5.2.3</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+		<!-- Media ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/it.sauronsoftware/jave -->
+<!--        <dependency>-->
+<!--            <groupId>it.sauronsoftware</groupId>-->
+<!--            <artifactId>jave</artifactId>-->
+<!--            <version>1.0.2</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/libs/jave-1.0.2.jar</systemPath>-->
+<!--        </dependency>-->
+
+		<!-- JUnit Jupiter For Testing ===================================================================================================================== -->
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+		<!-- Hamcrest ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- compatible for org.hamcrest - hamcrest-all-->
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+<!--		<dependency>-->
+<!--			<groupId>org.hamcrest</groupId>-->
+<!--			<artifactId>hamcrest</artifactId>-->
+<!--			<version>3.0</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!-- Mockito ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.15.2</version>
+<!--			<version>4.8.0</version>-->
+			<scope>test</scope>
+		</dependency>
+
+		<!-- compatible for org.mockito - mockito-core-->
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<!--		<dependency>-->
+<!--			<groupId>org.mockito</groupId>-->
+<!--			<artifactId>mockito-all</artifactId>-->
+<!--			<version>1.10.19</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!-- Crypto ===================================================================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
+<!--		<dependency>-->
+<!--			<groupId>org.bouncycastle</groupId>-->
+<!--			<artifactId>bcprov-jdk18on</artifactId>-->
+<!--			<version>1.79</version>-->
+<!--&lt;!&ndash;			<version>1.75</version>&ndash;&gt;-->
+<!--		</dependency>-->
+
+    </dependencies>
+
+	<!-- Build Settings -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+					<version>3.13.0</version>
+                    <configuration>
+                        <release>17</release>
+                        <outputFileName>MoraCommonLogging</outputFileName>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+					<version>3.5.2</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>Math</exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-jar-plugin</artifactId>-->
+<!--					<version>3.4.2</version>-->
+<!--                    <configuration>-->
+<!--                        <archive>-->
+<!--                            <manifest>-->
+<!--                                <mainClass>com.slmora.common.logging.app.App</mainClass>-->
+<!--                            </manifest>-->
+<!--                        </archive>-->
+<!--                    </configuration>-->
+<!--                </plugin>-->
+<!--				<plugin>-->
+<!--					<artifactId>maven-assembly-plugin</artifactId>-->
+<!--					<executions>-->
+<!--						<execution>-->
+<!--							<phase>package</phase>-->
+<!--							<goals>-->
+<!--								<goal>single</goal>-->
+<!--							</goals>-->
+<!--						</execution>-->
+<!--					</executions>-->
+<!--					<configuration>-->
+<!--						<archive>-->
+<!--							<manifest>-->
+<!--								<mainClass>com.slmora.sandbox.app.App</mainClass>-->
+<!--							</manifest>-->
+<!--						</archive>-->
+<!--						<descriptorRefs>-->
+<!--							<descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--						</descriptorRefs>-->
+<!--					</configuration>-->
+<!--				</plugin>-->
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-toolchains-plugin</artifactId>
+				<version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>toolchain</goal>
+                        </goals>
+                        <configuration>
+                            <toolchains>
+                                <jdk>
+                                    <version>17</version>
+                                </jdk>
+                            </toolchains>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
