@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * This pom.xml comes with basic dependency requirements and create for mora-common-logging-003-20250114001 Project
+ * This pom.xml comes with basic dependency requirements and create for mora-common-logging Project
  *
  * Language: XML
  * Property of Umesh Gunasekara
@@ -11,6 +11,7 @@
  * =====================================================================================================================
  * 1.0			01/14/2025		SLMORA              Initial Code
  * 1.1			01/14/2025		SLMORA				Generated from pom.xml using mora-sandbox-011-20250114001
+ * 2.0			01/21/2025		SLMORA				Modified with configuration match to mora-common-logging-002-20250121001
  *
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
@@ -20,7 +21,7 @@
 
 	<groupId>com.slmora.common.logging</groupId>
 	<artifactId>mora-common-logging</artifactId>
-	<version>3.0</version>
+	<version>2.0</version>
 	<packaging>jar</packaging>
 <!--	<packaging>war</packaging>-->
 
@@ -67,10 +68,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<apache.logging.log4j.version>2.24.3</apache.logging.log4j.version>
 <!--		<apache.logging.log4j.version>2.19.0</apache.logging.log4j.version>-->
-		<maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-<!--		<maven.compiler.source>1.8</maven.compiler.source>-->
-<!--		<maven.compiler.target>1.8</maven.compiler.target>-->
+<!--		<maven.compiler.source>17</maven.compiler.source>-->
+<!--        <maven.compiler.target>17</maven.compiler.target>-->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<mysql.connector.version>8.0.33</mysql.connector.version>
 <!--		<mysql.connector.version>8.0.31</mysql.connector.version>-->
 <!--		<hibernate.orm.version>6.5.2.Final</hibernate.orm.version>-->
@@ -737,7 +738,9 @@
                     <artifactId>maven-compiler-plugin</artifactId>
 					<version>3.13.0</version>
                     <configuration>
-                        <release>17</release>
+						<source>1.8</source>
+						<target>1.8</target>
+<!--                        <release>17</release>-->
                         <outputFileName>MoraCommonLogging</outputFileName>
                     </configuration>
                 </plugin>
@@ -786,26 +789,26 @@
 <!--				</plugin>-->
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-toolchains-plugin</artifactId>
-				<version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>toolchain</goal>
-                        </goals>
-                        <configuration>
-                            <toolchains>
-                                <jdk>
-                                    <version>17</version>
-                                </jdk>
-                            </toolchains>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-toolchains-plugin</artifactId>-->
+<!--				<version>3.2.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>toolchain</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <toolchains>-->
+<!--                                <jdk>-->
+<!--                                    <version>17</version>-->
+<!--                                </jdk>-->
+<!--                            </toolchains>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
     </build>
 </project>

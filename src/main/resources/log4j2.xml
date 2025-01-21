@@ -4,13 +4,13 @@
  * Language: XML
  * Property of Umesh Gunasekara
  * @Author: SLMORA
- * @DateTime: 01/14/2025 12:00 AM
+ * @DateTime: 01/21/2025 12:00 AM
  *
- * This log4j2.xml comes with basic log4j2 configuration for mora-common-logging-003-20250114001 Project
+ * This log4j2.xml comes with basic log4j2 configuration for mora-common-logging-002-20250121001 Project
  *
  * Version      Date            Editor              Note
  * ======================================================
- * 1.0			01/14/2025		SLMORA              Initial Code
+ * 1.0			01/21/2025		SLMORA              Initial Code
  *
 -->
 <Configuration status="WARN" monitorInterval="30">

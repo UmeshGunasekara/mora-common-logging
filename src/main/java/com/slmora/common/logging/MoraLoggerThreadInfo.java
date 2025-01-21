@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- *  This Class created for
+ *  This Class created for MoraLoggerThreadInfo
  *  <ul>
  *      <li>....</li>
  *  </ul>
@@ -23,7 +23,7 @@ import lombok.ToString;
  * <blockquote><pre>
  * <br>Version      Date            Editor              Note
  * <br>-------------------------------------------------------
- * <br>1.0          7/24/2023      SLMORA                Initial Code
+ * <br>1.0          1/21/2025      SLMORA                Initial Code
  * </pre></blockquote>
  */
 @Data

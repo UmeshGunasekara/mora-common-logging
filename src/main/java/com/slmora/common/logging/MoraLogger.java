@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- *  This Class created for
+ *  This Class created for MoraLogger
  *  <ul>
  *      <li>....</li>
  *  </ul>
@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentMap;
  * <blockquote><pre>
  * <br>Version      Date            Editor              Note
  * <br>-------------------------------------------------------
- * <br>1.0          7/24/2023      SLMORA                Initial Code
+ * <br>1.0          1/21/2025      SLMORA                Initial Code
  * </pre></blockquote>
  */
 public class MoraLogger
@@ -550,7 +550,7 @@ public class MoraLogger
     {
         StringBuilder builder = new StringBuilder().append('[').append(methodName).append("] ");
 
-        if (null == msgFormat || msgFormat.isBlank()) {
+        if (null == msgFormat || !"".equals(msgFormat.trim())) {
             builder.append("<Empty message>");
         } else if (isMoraMessage(msgFormat)) {
             msgFormat = msgFormat.trim();
@@ -566,7 +566,7 @@ public class MoraLogger
     {
         StringBuilder builder = new StringBuilder().append('[').append(formatLineInfo(stackTrace)).append("] ");
 
-        if (null == msgFormat || msgFormat.isBlank()) {
+        if (null == msgFormat || !"".equals(msgFormat.trim())) {
             builder.append("<Empty message>");
         } else if (isMoraMessage(msgFormat)) {
             msgFormat = msgFormat.trim();
@@ -586,7 +586,7 @@ public class MoraLogger
                 .append("] [")
                 .append(formatLineInfo(threadInfo.getThreadStackTrace())).append("] ");
 
-        if (null == msgFormat || msgFormat.isBlank()) {
+        if (null == msgFormat || !"".equals(msgFormat.trim())) {
             builder.append("<Empty message>");
         } else if (isMoraMessage(msgFormat)) {
             msgFormat = msgFormat.trim();
@@ -667,7 +667,7 @@ public class MoraLogger
         StringBuilder builder = new StringBuilder();
 
         String val = getProp().getProperty(msgFormat);
-        if (null == val || val.isBlank()) {
+        if (null == val || !"".equals(val.trim())) {
             for (Object obj : args) {
                 builder.append(' ').append(obj);
             }
@@ -782,9 +782,7 @@ public class MoraLogger
     }
 
     private String formatLineInfo(StackTraceElement[] stackTrace){
-        StringBuilder sb = new StringBuilder("Module - ");
-        sb.append(stackTrace[1].getModuleName());
-        sb.append(" | Class - ");
+        StringBuilder sb = new StringBuilder(" | Class - ");
         sb.append(stackTrace[1].getClassName());
         sb.append(" | Method - ");
         sb.append(stackTrace[1].getMethodName());
