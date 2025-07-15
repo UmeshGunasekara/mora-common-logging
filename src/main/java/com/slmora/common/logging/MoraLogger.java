@@ -68,7 +68,33 @@ public class MoraLogger
         return logger;
     }
 
+    public static MoraLogger getLogger(String clazz)
+    {
+        int index = clazz.lastIndexOf('.');
+
+        if (index >= 0) {
+            clazz = clazz.substring(index + 1);
+        }
+
+        MoraLogger logger = loggerMap.get(clazz);
+
+        if (logger == null) {
+            MoraLogger newLogger = new MoraLogger(clazz);
+            logger = loggerMap.putIfAbsent(clazz, newLogger);
+            if (logger == null) {
+                logger = newLogger;
+            }
+        }
+
+        return logger;
+    }
+
     public MoraLogger(Class<?> clazz)
+    {
+        this.logger = LogManager.getLogger(clazz);
+    }
+
+    public MoraLogger(String clazz)
     {
         this.logger = LogManager.getLogger(clazz);
     }
