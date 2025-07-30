@@ -69,7 +69,7 @@ Project: _slmora_logging_
 - 01/21/2025 12:00 AM
     + Create Project release V2.0 with mora-common-logging-002-20250121001 compatible for JDK 1.8
 - 01/22/2025 12:00 AM
-	+ Create Project release V2.0 with mora-common-logging-003-20250114001 compatible for JDK 17
+	+ Create Project release V3.0 with mora-common-logging-003-20250114001 compatible for JDK 17
 
 ## Building
 
@@ -85,5 +85,25 @@ Run the build:
 `mvn install`
 
 ## Note
+
+### 1. Merge changes between two branches
+To merge changes for branch "slmora-dev" to "dev-v3"
+
+- After commit all changes in branch "slmora-dev"
+- change working branch to "dev-v3"
+  + `git checkout dev-v3`
+- Perform a merge with no commit
+  + `git merge --no-commit --no-ff slmora-dev`
+- Remove unwanted changes form stage area
+  + Remove README.md
+    - `git restore --staged --worktree README.MD`
+  + Remove logging/sandbox folder
+    - `git restore --staged --worktree src/main/java/com/slmora/common/logging/sandbox/`
+  + Remove test/ folder
+    - `git restore --staged --worktree src/test/`
+  + Remove all files with .xml
+    - `find . -name "*.xml" -exec git restore --staged --worktree {} \;`
+- Commit last merge changes
+  + `git commit -am "MORALENOVO - 003-20250114001 - slmora-dev - UTC 202507220312 - initi merge cganges"`
 
 ----
