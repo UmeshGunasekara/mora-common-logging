@@ -22,13 +22,36 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- *  This Class created for MoraLogger
- *  <ul>
- *      <li>....</li>
- *  </ul>
+ * The {@code MoraLogger} is a wrapper utility class over Log4j2 to provide
+ * structured and enhanced logging for enterprise applications.
+ * <p>
+ * It supports dynamic message formatting, property-based message resolution,
+ * and consistent message prefixing with method name and message ID.
+ * </p>
  *
- * @since   1.0
+ * <h4>Key Features</h4>
+ * <ul>
+ *     <li>Centralized logger management using class or string identifiers</li>
+ *     <li>Formatted and localized logging based on resource bundles</li>
+ *     <li>Support for all log levels with optional and throwable-aware logging</li>
+ *     <li>Marker-aware structured log message integration</li>
+ * </ul>
+ * <h4>Codes</h4>
+ * 1 - {@link }<br>
+ * <h4>Methods</h4>
+ * <ul>
+ *     <li>{@link MoraLogger#getLogger(Class)}</li>
+ * </ul>
+ * <p>
+ * <h4>Notes</h4>
+ * <ul>
+ *     <li>....</li>
+ * </ul>
  *
+ * @author: SLMORA
+ * @since 1.0
+ *
+ * <h4>Revision History</h4>
  * <blockquote><pre>
  * <br>Version      Date            Editor              Note
  * <br>-------------------------------------------------------
@@ -38,28 +61,28 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class MoraLogger
 {
-    final static Logger BASE_LOGGER = LogManager.getLogger(MoraLogger.class);
+    private final Logger BASE_LOGGER = LogManager.getLogger(MoraLogger.class);
     private static final String DELIM_STR = "{}";
     private static final String MESSAGE_RESOURCE = "messageResources.properties";
+    private static ConcurrentMap<String, MoraLogger> LOGGER_CACHE = new ConcurrentHashMap<>();
     private Properties propCache;
     private Logger logger = null;
 
-    private static ConcurrentMap<String, MoraLogger> loggerMap = new ConcurrentHashMap<>();
-
+    /**
+     * Retrieves a {@code MoraLogger} instance associated with the given class.
+     *
+     * @param clazz the target class
+     * @return MoraLogger instance
+     */
     public static MoraLogger getLogger(Class<?> clazz)
     {
-        String className = clazz.getName();
-        int index = className.lastIndexOf('.');
+        String className = getSimpleName(clazz.getName());
 
-        if (index >= 0) {
-            className = className.substring(index + 1);
-        }
-
-        MoraLogger logger = loggerMap.get(className);
+        MoraLogger logger = LOGGER_CACHE.get(className);
 
         if (logger == null) {
             MoraLogger newLogger = new MoraLogger(clazz);
-            logger = loggerMap.putIfAbsent(className, newLogger);
+            logger = LOGGER_CACHE.putIfAbsent(className, newLogger);
             if (logger == null) {
                 logger = newLogger;
             }
@@ -68,19 +91,21 @@ public class MoraLogger
         return logger;
     }
 
-    public static MoraLogger getLogger(String clazz)
+    /**
+     * Retrieves a {@code MoraLogger} instance associated with the given class name.
+     *
+     * @param className the fully qualified class name
+     * @return MoraLogger instance
+     */
+    public static MoraLogger getLogger(String className)
     {
-        int index = clazz.lastIndexOf('.');
+        className = getSimpleName(className);
 
-        if (index >= 0) {
-            clazz = clazz.substring(index + 1);
-        }
-
-        MoraLogger logger = loggerMap.get(clazz);
+        MoraLogger logger = LOGGER_CACHE.get(className);
 
         if (logger == null) {
-            MoraLogger newLogger = new MoraLogger(clazz);
-            logger = loggerMap.putIfAbsent(clazz, newLogger);
+            MoraLogger newLogger = new MoraLogger(className);
+            logger = LOGGER_CACHE.putIfAbsent(className, newLogger);
             if (logger == null) {
                 logger = newLogger;
             }
@@ -89,11 +114,32 @@ public class MoraLogger
         return logger;
     }
 
+    /**
+     * Extracts simple class name from fully qualified class name.
+     *
+     * @param className full class name
+     * @return simple class name
+     */
+    private static String getSimpleName(String className) {
+        int lastDot = className.lastIndexOf('.');
+        return (lastDot >= 0) ? className.substring(lastDot + 1) : className;
+    }
+
+    /**
+     * Private constructor with class.
+     *
+     * @param clazz class to associate with logger
+     */
     public MoraLogger(Class<?> clazz)
     {
         this.logger = LogManager.getLogger(clazz);
     }
 
+    /**
+     * Private constructor with class name.
+     *
+     * @param className fully qualified class name
+     */
     public MoraLogger(String clazz)
     {
         this.logger = LogManager.getLogger(clazz);
@@ -101,6 +147,7 @@ public class MoraLogger
 
 
     //FATAL - 100
+    /** Logs a FATAL message. */
     public void fatal(String message)
     {
         this.logger.fatal(message);
@@ -736,6 +783,12 @@ public class MoraLogger
         return value;
     }
 
+    /**
+     * Checks if the format string is a known MORA message pattern.
+     *
+     * @param msgFormat message format or key
+     * @return true if known pattern
+     */
     private boolean isMoraMessage(
             String msgFormat )
     {
