@@ -107,3 +107,6 @@ To merge changes for branch "slmora-dev" to "dev-v3"
   + `git commit -am "MORALENOVO - 003-20250114001 - slmora-dev - UTC 202507220312 - initi merge cganges"`
 
 ----
+### 2. Commit
+- commit comment pattern 
+  + `|MORALENOVO | mora-common-logging | dev-v3 | commit | UTC 2026-02-18-0440-001 | commit comment|`
